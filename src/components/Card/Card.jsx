@@ -25,8 +25,10 @@ const Card = ({ title, price, description, quantity, image, fontSize, getQuantit
         </p>
         <p className={styles.card_description}>{description}</p>
       </div>
-      <button className={styles.card_button}>Add to cart</button>
-      <a href='#'>Learn More</a>
+      <div className={styles.card_footer}>
+        <button className={styles.card_button}>Add to cart</button>
+        <a href='#'>Learn More</a>
+      </div>
     </div>
   )
 }
