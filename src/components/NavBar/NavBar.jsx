@@ -7,7 +7,7 @@ const NavBar = ({ setTitle, setFontSize, quantity }) => {
     setTitle(title)
   }
   const handleFontSize = e => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     setFontSize(e.target.value)
   }
 
