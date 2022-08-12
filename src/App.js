@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './App.module.css'
 import image from './assets/images/img-not-found.jpg'
 import Card from './components/Card/Card'
@@ -36,9 +36,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <NavBar setFontSize={getRangeValue} setTitle={changeCardTitle} quantity={total} />
-      <div className={styles.container}>
+      <div className={styles.cards_container}>
         {infoCards.map((item, index) => (
           <Card
             key={index}
