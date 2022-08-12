@@ -1,28 +1,40 @@
 import React from 'react'
+import styles from './NavBar.module.css'
 
-const NavBar = ({ infoCardsLength, algo }) => {
-  let index = 0
+const NavBar = ({ setTitle, setFontSize, quantity }) => {
   const handleChange = e => {
-    e.target.localName === 'select' && (index = e.target.value)
-    e.target.localName === 'input' && (algo(e.target.value, index))
-    // console.log(e.target.localName, ' ', e.target.value)
+    let title = e.target.value === '' ? 'Sin Titulo' : e.target.value
+    setTitle(title)
+  }
+  const handleFontSize = e => {
+    console.log(e.target.value)
+    setFontSize(e.target.value)
   }
 
   return (
-    <div>
+    <div className={styles.navbar_container}>
       <div>
-        <form onChange={handleChange}>
-          <input type='text' placeholder='Cambia el titulo' />
-          <select name='idSelector' id='idSelector'>
-            {(() => {
-              let options = []
-              for (let i = 0; i < infoCardsLength; i++) {
-                options.push(<option key={i} value={i}>{i}</option>)
-              }
-              return options
-            })()}
-          </select>
-        </form>
+        <input
+          type='text'
+          placeholder='Cambia el titulo del primer producto'
+          onChange={handleChange}ñ
+        />
+      </div>
+      <div className={styles.navbar_range}>
+        <label htmlFor='points'>Font size (between 1rem and 10rem):</label>
+        <input
+          type='range'
+          id='points'
+          name='points'
+          min='1'
+          max='10'
+          defaultValue={'1.5'}
+          step={0.5}
+          onChange={handleFontSize}
+        />
+      </div>
+      <div>
+        <p className={styles.navbar_quantity}>Cantidad total de productos: {quantity}</p>
       </div>
     </div>
   )
